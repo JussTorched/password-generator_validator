@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <script src="../backend/index.js"></script>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/assets/favicon.png">
+    <link rel="apple-touch-icon" href="/assets/favicon.png" />
+    <link rel="stylesheet" href="index.css">
+    <title>Password Util</title>
+    <meta name="description"
+        content="Fully functional password generator & validator, created by (不滅)Shinigami using (HTML/CSS/JS).">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <header>
+        <h1>Password Util</h1>
+    </header>
+    <div class="main">
+        <input id="passwordInput" onkeydown="validate(event)" autocomplete="new-password" type="password">
+        <div id="inputError"></div>
+        <button id="passwordSee" onclick="passwordSee()">See Password</button>
+    </div>
+    <div class="mode">
+        <div id="modeShow">
+            No Mode Selected
+        </div>
+        <button id="validation" onclick="validateMode()">Validate</button> <button id="generation"
+            onclick="generateMode()">Generate</button>
+    </div>
+</body>
+
+</html>

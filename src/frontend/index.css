@@ -1,0 +1,97 @@
+body {
+    background-color: aliceblue;
+}
+
+@keyframes colorSweep {
+    0% {
+        background-image: linear-gradient(to right, #f9fbfd, rgb(141, 247, 224), rgb(141, 247, 224), #f9fbfd);
+    }
+    25% {
+        background-image: linear-gradient(to right, #f9fbfd, #f9fbfd, rgb(141, 247, 224), rgb(141, 247, 224));
+    }
+    50% {
+        background-image: linear-gradient(to right, rgb(141, 247, 224), #f9fbfd, #f9fbfd, rgb(141, 247, 224));
+    }
+    75% {
+        background-image: linear-gradient(to right, rgb(141, 247, 224), rgb(141, 247, 224), #f9fbfd, #f9fbfd);
+    }
+    100% {
+        background-image: linear-gradient(to right, #f9fbfd, rgb(141, 247, 224), rgb(141, 247, 224), #f9fbfd);
+    }
+}
+@keyframes logoSpin {
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(20deg);
+    }
+    50% {
+        transform: rotate(-20deg);
+    }
+    55% {
+        transform: rotate(0deg);
+    }
+    70% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+h1 {
+    font-size: 50px;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    animation-name: logoSpin;
+    animation-duration: 4s;
+}
+
+.main {
+    text-align: center;
+}
+.main input {
+    font-size: 30px;
+}
+.main button {
+    margin-top: 10px;
+    font-size: 18px;
+    border-radius: 2px;
+}
+.main button:focus {
+    font-size: 18px;
+    border-radius: 2px;
+    outline: none;
+    box-shadow: none;
+}
+
+.mode {
+    color: black;
+    padding: 10px 10px;
+    text-align: center;
+    font-size: 20px;
+}
+.mode button {
+    margin-top: 50px;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 20px;
+}
+.mode button:hover {
+    outline: none;
+    box-shadow: none;
+}
+.mode button:focus {
+    font-weight: bolder;
+}
+
+#modeShow {
+    margin-top: 175px;
+    color: black;
+    padding: 10px 10px;
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
