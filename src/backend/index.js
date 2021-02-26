@@ -79,49 +79,47 @@ function validateMode() {
 async function generateMode() {
     const mode = sessionStorage.getItem('mode');
 
-    if (mode === 'generate') {
-        const inputValue = document.getElementById('passwordInput');
-        const inputError = document.getElementById('inputError');
-        function randomizer(string) {
-            const randomizer = Math.floor(Math.random() * (string.length - 1) + 1);
-            const randomizedArray = string[randomizer];
-            return randomizedArray;
-        }
-        function randomize(string, max) {
-            const array = [];
-            for (let i = 0; i < string.length; i++) {
-                array.push(randomizer(string));
-                if (array.length == string.length) {
-                    const randomizedString = array.join('').toString();
-                    if (!max) {
-                        return randomizedString;
-                    } else {
-                        return randomizedString.slice(0, max);
-                    }
+    const inputValue = document.getElementById('passwordInput');
+    const inputError = document.getElementById('inputError');
+    function randomizer(string) {
+        const randomizer = Math.floor(Math.random() * (string.length - 1) + 1);
+        const randomizedArray = string[randomizer];
+        return randomizedArray;
+    }
+    function randomize(string, max) {
+        const array = [];
+        for (let i = 0; i < string.length; i++) {
+            array.push(randomizer(string));
+            if (array.length == string.length) {
+                const randomizedString = array.join('').toString();
+                if (!max) {
+                    return randomizedString;
+                } else {
+                    return randomizedString.slice(0, max);
                 }
             }
         }
-        const randomChar = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890`~!@#$%^&*()_-+=[]{}\\|;:\'"/?.>,<';
-
-
-        inputValue.setAttribute('readonly', true);
-        inputValue.value = randomize(randomChar, 8);
-
-        inputError.innerHTML = '<u>Success, Copied To Clipboard</u>';
-        inputError.style.color = 'green';
-        inputError.style.fontSize = '25px';
-
-        await navigator.clipboard.writeText(inputValue.value).catch(error => {
-            console.log(error);
-        });
-
-        const element = document.getElementById('generation');
-        const modeName = document.getElementById('modeShow');
-
-        modeName.innerHTML = element.innerHTML;
-        sessionStorage.setItem('mode', 'generate');
-        setTimeout(() => {
-            modeName.innerHTML = '';
-        }, 3000);
     }
+    const randomChar = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890`~!@#$%^&*()_-+=[]{}\\|;:\'"/?.>,<';
+
+
+    inputValue.setAttribute('readonly', true);
+    inputValue.value = randomize(randomChar, 8);
+
+    inputError.innerHTML = '<u>Success, Copied To Clipboard</u>';
+    inputError.style.color = 'green';
+    inputError.style.fontSize = '25px';
+
+    await navigator.clipboard.writeText(inputValue.value).catch(error => {
+        console.log(error);
+    });
+
+    const element = document.getElementById('generation');
+    const modeName = document.getElementById('modeShow');
+
+    modeName.innerHTML = element.innerHTML;
+    sessionStorage.setItem('mode', 'generate');
+    setTimeout(() => {
+        modeName.innerHTML = '';
+    }, 3000);
 }
