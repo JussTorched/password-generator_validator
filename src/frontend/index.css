@@ -82,9 +82,6 @@ h1 {
     outline: none;
     box-shadow: none;
 }
-.mode button:focus {
-    font-weight: bolder;
-}
 
 #modeShow {
     margin-top: 175px;

@@ -69,16 +69,20 @@ function validateMode() {
     const element = document.getElementById('validation');
     const mode = document.getElementById('modeShow');
 
+    const inputValue = document.getElementById('passwordInput');
+    inputValue.value = '';
+    inputValue.removeAttribute('readonly');
+
     mode.innerHTML = element.innerHTML;
     sessionStorage.setItem('mode', 'validate');
-    setTimeout(() => {
-        mode.innerHTML = '';
-    }, 3000);
+    mode.innerHTML = '';
+    const valButton = document.getElementById('validation');
+    const genButton = document.getElementById('generation');
+    genButton.style.fontWeight = 'initial';
+    valButton.style.fontWeight = 'bolder';
 }
 
 async function generateMode() {
-    const mode = sessionStorage.getItem('mode');
-
     const inputValue = document.getElementById('passwordInput');
     const inputError = document.getElementById('inputError');
     function randomizer(string) {
@@ -119,7 +123,10 @@ async function generateMode() {
 
     modeName.innerHTML = element.innerHTML;
     sessionStorage.setItem('mode', 'generate');
-    setTimeout(() => {
-        modeName.innerHTML = '';
-    }, 3000);
+    modeName.innerHTML = '';
+    const genButton = document.getElementById('generation');
+    const valButton = document.getElementById('validation');
+    genButton.style.fontWeight = 'bolder';
+    valButton.style.fontWeight = 'initial';
+
 }
